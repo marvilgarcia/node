@@ -12,21 +12,22 @@ const app = express()
 const static = require("./routes/static")
 
 /* ***********************
-
 View Engine and Templates
- * Routes
  *************************/
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout") // not at views root
 
 
-app.use(static)
+/* ***********************
+ * Routes
+ *************************/
 
-app.use(require)
+app.use(static);
+
 // Route for Home Page
 app.get("/", function(req, res) {
-  res.render("index", { title: "Home" });
+  res.render("index", {title: "Home"});
 });
 
 /* ***********************
